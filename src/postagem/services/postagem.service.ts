@@ -1,4 +1,6 @@
-import { HttpException, Injectable, HttpStatus } from "@nestjs/common";
+import { HttpException, 
+         Injectable, 
+         HttpStatus } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ILike, Repository } from "typeorm";
 import { Postagem } from "../entities/postagem.entity";
