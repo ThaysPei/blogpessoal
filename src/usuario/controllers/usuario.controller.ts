@@ -1,8 +1,9 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Put, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { Usuario } from "../entities/usuario.entity";
 import { UsuarioService } from "../services/usuario.service";
+import { ParseIntPipe } from '@nestjs/common';
 
 @ApiTags('Usuario')
 @Controller("/usuarios")
@@ -20,7 +21,7 @@ export class UsuarioController {
     @UseGuards(JwtAuthGuard)
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
-    findById(@Param('id', parseIntPipe) id: number): Promise<Usuario>{
+    findById(@Param('id', ParseIntPipe) id: number): Promise<Usuario>{
         return this.usuarioService.findById(id)
     }
 
