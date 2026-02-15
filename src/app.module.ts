@@ -13,7 +13,7 @@ import { UsuarioModule } from './usuario/usuario.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
-      useClass: DevService,
+      useClass: ProdService,
       imports: [ConfigModule],
     }),
     PostagemModule,
